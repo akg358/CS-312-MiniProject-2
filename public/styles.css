@@ -1,0 +1,38 @@
+body { font-family: Arial, sans-serif; background: #1b2a4e; color: #eee; margin: 0; padding: 20px; }
+.wrap { max-width: 900px; margin: auto; }
+
+h1 { color: #fff; }
+.sub { color: #a8b3cc; margin-top: -10px; margin-bottom: 25px; }
+h2 { margin-top: 0; font-size: 18px; color: #fff; }
+
+.card { background: #24365c; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #6bbf8a; }
+
+input, select {
+    width: 100%; padding: 9px; margin-bottom: 8px;
+    border: 1px solid #3a4f78; border-radius: 4px;
+    background: #1b2a4e; color: #eee; box-sizing: border-box;
+}
+
+button { background: #6bbf8a; color: #1b2a4e; border: 0; padding: 9px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+button:hover { background: #57a574; }
+
+.randomBtn { background: #6bbf8a; color: #1b2a4e; }
+.randomBtn:hover { background: #57a574; }
+
+.error { background: #5a1e1e; color: #ffb3b3; padding: 12px; border-radius: 6px; margin: 15px 0; border-left: 4px solid #c0392b; }
+
+.resultsHeader { color: #fff; margin-top: 25px; }
+.results { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 15px; }
+
+.drink { background: #24365c; padding: 12px; border-radius: 8px; border-top: 4px solid #6bbf8a; }
+.drink img { width: 100%; border-radius: 6px; margin-bottom: 10px; }
+.drink h3 { margin: 0 0 6px 0; color: #fff; }
+.tagline { font-size: 12px; color: #a8b3cc; margin: 0 0 8px 0; }
+.instructions { font-size: 13px; color: #ccc; line-height: 1.4; }
+.drink h4 { margin: 10px 0 4px 0; font-size: 13px; color: #6bbf8a; }
+.drink ul { margin: 0; padding-left: 18px; font-size: 12px; color: #bbb; }
+
+@media (max-width: 500px) {
+    body { padding: 10px; }
+    .results { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cocktail Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="wrap">
+    <h1>Cocktail Finder</h1>
+    <p class="sub">CS-312 Mini Project 2</p>
+
+    <div class="card">
+        <h2>Search by name</h2>
+        <form action="/search" method="POST">
+            <input type="text" name="searchTerm" placeholder="ex. drink" required>
+            <button>Search</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Random Try</h2>
+        <form action="/random" method="POST">
+            <button class="randomBtn">Random choice</button>
+        </form>
+    </div>
+
+    <% if (error) { %>
+        <div class="error"><%= error %></div>
+    <% } %>
+
+    <% if (drinks) { %>
+        <h2 class="resultsHeader"><%= drinks.length %> found</h2>
+
+        <div class="results">
+        <% drinks.forEach(drink => { %>
+            <div class="drink">
+                <img src="<%= drink.strDrinkThumb %>" alt="<%= drink.strDrink %>">
+                <h3><%= drink.strDrink %></h3>
+
+                <p class="tagline"><%= drink.strCategory || "n/a" %> &middot; <%= drink.strAlcoholic || "n/a" %> &middot; <%= drink.strGlass || "n/a" %></p>
+
+                <p class="instructions"><%= drink.strInstructions %></p>
+
+                <h4>Ingredients</h4>
+                <ul>
+                <% for (let i = 1; i <= 15; i++) {
+                    let ing = drink["strIngredient" + i];
+                    let amt = drink["strMeasure" + i];
+                    if (ing && ing.trim()) { %>
+                        <li><%= amt ? amt : "" %> <%= ing %></li>
+                    <% }
+                } %>
+                </ul>
+            </div>
+        <% }) %>
+        </div>
+    <% } %>
+</div>
+</body>
+</html>
